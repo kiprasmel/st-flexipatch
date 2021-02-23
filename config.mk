@@ -16,17 +16,17 @@ PKG_CONFIG = pkg-config
 XRENDER = -lXrender
 
 # Uncomment this for the themed cursor patch / THEMED_CURSOR_PATCH
-#XCURSOR = -lXcursor
+XCURSOR = -lXcursor
 
 # includes and libs, uncomment harfbuzz for the ligatures patch
 INCS = -I$(X11INC) \
        `$(PKG_CONFIG) --cflags fontconfig` \
        `$(PKG_CONFIG) --cflags freetype2` \
-#       `$(PKG_CONFIG) --cflags harfbuzz`
+       `$(PKG_CONFIG) --cflags harfbuzz`
 LIBS = -L$(X11LIB) -lm -lrt -lX11 -lutil -lXft ${XRENDER} ${XCURSOR}\
        `$(PKG_CONFIG) --libs fontconfig` \
        `$(PKG_CONFIG) --libs freetype2` \
-#       `$(PKG_CONFIG) --libs harfbuzz`
+       `$(PKG_CONFIG) --libs harfbuzz`
 
 # flags
 STCPPFLAGS = -DVERSION=\"$(VERSION)\" -D_XOPEN_SOURCE=600
